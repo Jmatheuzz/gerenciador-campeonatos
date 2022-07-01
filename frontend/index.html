@@ -40,7 +40,7 @@
         }
     })
     response1.data.torneios.forEach(torneio => {
-        torneios.innerHTML += `<div><h3 id = "nome-torneio"> ${torneio.nome} </h3> Descricao: <span> ${torneio.descricao} </span> <button onclick="apagar(this)"> Apagar </button> </div>`
+        torneios.innerHTML += `<div><h3 id = "nome-torneio"> ${torneio.nome} </h3> Descricao: <span> ${torneio.descricao} </span> <button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button></div>`
     });
     return torneios;
     }
@@ -63,6 +63,17 @@
         }
         })
         document.location.reload(true);
+    }
+    async function atualizar(elemento){
+        const nomeTorneio = String(elemento.parentNode.firstChild.innerHTML).trim().replace(/ /g, '-');
+        localStorage.setItem("nomeTorneioAtualizar", nomeTorneio);
+        window.location.href = "http://127.0.0.1:5500/frontend/atualizar-torneio.html"
+        /* await api.delete(`torneios/delete/${nomeTorneio}`, {
+        headers:{
+            'authorization': 'Bearer ' + localStorage.getItem("token")
+        }
+        })
+        document.location.reload(true); */
     }
 </script>
 </html>
