@@ -14,6 +14,6 @@ formLogin.addEventListener('submit', async (e)=>{
 
   const response = await api.post("token", {email:emailValue, password:passwordValue});
   localStorage.setItem("token", response.data.token);
-  window.location.href = "http://127.0.0.1:5500/frontend/index.html"
+  window.location.href = "http://127.0.0.1:5500/frontend/pages/index.html"
 })
 
