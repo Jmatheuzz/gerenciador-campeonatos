@@ -5,6 +5,7 @@ import loginRequired from '../middlewares/loginRequired';
 const router = new Router();
 
 router.get('/index/', loginRequired, torneioController.indexByCHE);
+router.get('/show/:nome', loginRequired, torneioController.indexByNome);
 router.post('/create/', loginRequired, torneioController.store);
 router.delete('/delete/:nome', loginRequired, torneioController.delete);
 router.put('/update/:nome', loginRequired, torneioController.update);

@@ -59,6 +59,14 @@ class TorneioController{
       }
 
     }
+
+    async indexByNome(req, res){
+      const nomeTorneio = req.params.nome.replace(/-/g, ' ');
+      const torneio = await Torneio.indexByNome(nomeTorneio);
+      return res.json({
+        torneio
+      })
+    }
 }
 
 export default new TorneioController();

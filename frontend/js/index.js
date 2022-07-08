@@ -24,7 +24,7 @@ const sair = document.querySelector('.sair');
     })
     /*  */
     response1.data.torneios.forEach(torneio => {
-        torneios.innerHTML += `<div><a onclick="criarTime(this)" href="http://127.0.0.1:5500/frontend/criar-time.html "><h3 id = "nome-torneio"> ${torneio.nome} </h3></a> Descricao: <span> ${torneio.descricao} </span> <button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button></div>`
+        torneios.innerHTML += `<div><a onclick="criarTime(this)" href="http://127.0.0.1:5500/frontend/show-torneio.html "><h3 id = "nome-torneio"> ${torneio.nome} </h3></a><button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button></div>`
     });
     return torneios;
     }

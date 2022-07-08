@@ -16,7 +16,7 @@ class TimeController{
         }
       }
     async indexByCHE(req, res){
-      const [torneio] = await Torneio.indexByNome(req.params.nome);
+      const [torneio] = await Torneio.indexByNome(req.params.nome.replace(/-/g, ' '));
       const Times = await Time.indexByCHE(torneio.id);
       return res.json({
         Times
