@@ -15,5 +15,5 @@ const api = axios.create({
                   'authorization': 'Bearer ' + localStorage.getItem("token")
               }
           });
-          window.location.href = "http://127.0.0.1:5500/frontend/index.html"
+          window.location.href = "http://localhost:5500/frontend/index.html"
       })

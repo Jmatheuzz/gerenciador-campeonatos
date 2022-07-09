@@ -51,7 +51,7 @@ const sair = document.querySelector('.sair');
     async function atualizar(elemento){
         const nomeTorneio = String(elemento.parentNode.firstChild.innerHTML).trim().replace(/ /g, '-');
         localStorage.setItem("nomeTorneioAtualizar", nomeTorneio.slice(23, -6));
-        window.location.href = "http://127.0.0.1:5500/frontend/atualizar-torneio.html"
+        window.location.href = "http://localhost:5500/frontend/atualizar-torneio.html"
         /* await api.delete(`torneios/delete/${nomeTorneio}`, {
         headers:{
             'authorization': 'Bearer ' + localStorage.getItem("token")

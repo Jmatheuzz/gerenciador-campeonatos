@@ -21,5 +21,5 @@ const api = axios.create({
       })
 
       function criarP(){
-        window.location.href = "http://127.0.0.1:5500/frontend/criar-jogador.html"
+        window.location.href = "http://localhost/frontend/criar-jogador.html"
       }

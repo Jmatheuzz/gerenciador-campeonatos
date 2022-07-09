@@ -22,5 +22,5 @@ const api = axios.create({
 
       function criarJ(){
         localStorage.setItem("time", nomeTime.value);
-        window.location.href = "http://127.0.0.1:5500/frontend/criar-jogador.html" 
+        window.location.href = "http://localhost:5500/frontend/criar-jogador.html" 
       }
