@@ -16,7 +16,7 @@ body, input, button {
     -webkit-font-smoothing: antialiased;
 }
 
-button {
+button{
     width: 50%;
     padding: 24px;
     font-weight: 700;
@@ -49,6 +49,62 @@ input{
     font-size: 16px;
 }
 
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*div#torn{
+
+}*/
+
+div.image{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.image h3{
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+div.image a{
+    text-decoration: none;
+}
+
+div.torneios button{
+    width: 50%;
+    padding: 24px;
+    font-weight: 700;
+
+    background: rgba(0, 0, 0, 0.555);
+    color: #FFFFFF;
+
+    border-radius: 5px;
+    margin: 6px 0 6px;
+    border: none;
+
+    cursor: pointer;
+    transition: filter 0.2s;
+
+    font-size: 16px;
+}
+
 img{
+    width: 10%;
+    margin: 10px;
+}
+
+img#logohome{
     width: 25%;
+    margin: 10px;
+}
+
+h1, h2{
+    color: #FFFF;
+    margin: 20px;
 }

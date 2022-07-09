@@ -42,7 +42,7 @@ response1.data.Times.forEach(torneio => {
     contaTimes++;
     times.innerHTML += `<div><h3 id = "nome-torneio"> ${torneio.nome} </h3><button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button></div>`
 });
-times.innerHTML += contaTimes < qtdTimes? '<button onclick="criarTime()"> Criar time </button>': '';
+times.innerHTML += contaTimes < qtdTimes? '<button onclick="criarTime()"> Adicionar time </button>': '';
 
 if(!response2.partidas && contaTimes == qtdTimes){
     partidas.innerHTML = `<button onclick="criarPartidasAleatorias()"> Criar partidas aleatórias </button>`

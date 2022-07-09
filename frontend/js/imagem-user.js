@@ -1,11 +1,11 @@
 const api = axios.create({
     headers: {'Content-Type': 'application/json'},
     baseURL: "http://localhost:3001",
-    });
+});
 
-    const formLogin = document.querySelector("#foto-user");
+const formLogin = document.querySelector("#foto-user");
     
-    formLogin.addEventListener('submit', async (e)=>{
+formLogin.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const formData = new FormData();
     const imagefile = document.querySelector('#foto');
@@ -20,5 +20,5 @@ const api = axios.create({
 
     
     window.location.href = "http://localhost:5500/frontend/inicio.html"
-    })
+})
 
