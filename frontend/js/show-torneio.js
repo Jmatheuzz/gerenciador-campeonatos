@@ -1,5 +1,6 @@
 const informacoes = document.querySelector('.informations');
 const times = document.querySelector('.times');
+const partidas = document.querySelector('.partidas');
 
 
 const api = axios.create({
@@ -29,6 +30,12 @@ const response1 = await api.get(`times/${nomeTorneio}/index`, {
         'authorization': 'Bearer ' + localStorage.getItem("token")
     }
 })
+
+const response2 = await api.get(`partidas/${nomeTorneio}/index`, {
+    headers:{
+        'authorization': 'Bearer ' + localStorage.getItem("token")
+    }
+})
 /*  */
 
 response1.data.Times.forEach(torneio => {
@@ -37,11 +44,44 @@ response1.data.Times.forEach(torneio => {
 });
 times.innerHTML += contaTimes < qtdTimes? '<button onclick="criarTime()"> Criar time </button>': '';
 
+if(!response2.partidas && contaTimes == qtdTimes){
+    partidas.innerHTML = `<button onclick="criarPartidasAleatorias()"> Criar partidas aleatórias </button>`
+}
+
 }
 function criarTime(){
 
     window.location.href = "http://127.0.0.1:5500/frontend/criar-time.html"
 
+}
+
+async function criarPartidasAleatorias(){
+    const response1 = await api.get(`times/${nomeTorneio}/index`, {
+        headers:{
+            'authorization': 'Bearer ' + localStorage.getItem("token")
+        }
+    })
+    const times = response1.data.Times
+
+    for (let i = 0; i < times.length; i++) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [times[i], times[j]] = [times[j], times[i]];
+    }
+    console.log(times)
+    while(times.length > 0){
+        const partida = {
+            time1: times.pop(),
+            time2: times.pop(),
+            local: "Crie o local",
+            data_hora: new Date().toISOString().slice(0, 19).replace('T', ' ')
+        }
+        await api.post(`partidas/${nomeTorneio}/${partida.time1.nome.replace(/ /g, '-')}/${partida.time2.nome.replace(/ /g, '-')}/create`, partida, {
+            headers:{
+                'authorization': 'Bearer ' + localStorage.getItem("token")
+            }
+        })
+    }
+    
 }
 inicio();
 

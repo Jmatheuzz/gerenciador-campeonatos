@@ -1,3 +1,12 @@
+ALTERAÇÕES
+
+ALTER TABLE pi.time
+	add column eliminado int default 0;
+
+ALTER TABLE pi.partida
+	add column estado varchar(20) default "NAO INICIADO";
+
+
 CREATE TABLE pi.clientes(
     id int auto_increment primary key,
     nome varchar(100) not null,

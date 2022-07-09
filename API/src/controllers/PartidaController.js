@@ -1,13 +1,15 @@
 import Partidas from '../models/Partidas';
 import Torneio from '../models/Torneio';
 import Time from '../models/Time';
+import Partida from '../models/Partidas';
 
 class PartidaController{
     async store(req, res) {
         try {
-          const [torneio] = await Torneio.indexByNome(req.params.nomeTorneio);
-          const [time1] = await Time.indexByNome(req.params.nomeTime1);
-          const [time2] = await Time.indexByNome(req.params.nomeTime2);
+          const [torneio] = await Torneio.indexByNome(req.params.nomeTorneio.replace(/-/g, ' '));
+          console.log(torneio, req.params.nomeTorneio.replace(/ /g, '-'))
+          const [time1] = await Time.indexByNome(req.params.nomeTime1.replace(/-/g, ' '));
+          const [time2] = await Time.indexByNome(req.params.nomeTime2.replace(/-/g, ' '));
           await Partidas.create({
             id_torneio:torneio.id,
             id_time1: time1.id,
@@ -21,10 +23,11 @@ class PartidaController{
         }
       }
     async indexByCHE(req, res){
-      const [torneio] = await Torneio.indexByNome(req.params.nome);
-      const Times = await Time.indexByCHE(torneio.id);
+      const [torneio] = await Torneio.indexByNome(req.params.nomeTorneio.replace(/-/g, ' '));
+      console.log(torneio)
+      const partidas = await Partida.indexByCHE(torneio.id);
       return res.json({
-        Times
+        partidas
       })
     }
     

@@ -2,7 +2,7 @@ const {connect} = require('../../db');
 
 exports.indexPartidasByCHE = async function(idTorneio){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT * FROM partidas WHERE id_torneio=?', idTorneio);
+    const [rows] = await conn.query('SELECT * FROM partida WHERE id_torneio=?', idTorneio);
     return rows;
 }
 
