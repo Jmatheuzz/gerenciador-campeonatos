@@ -14,7 +14,7 @@ async function inicio(){
         'authorization': 'Bearer ' + localStorage.getItem("token")
     }
 })
-bemVindo.innerHTML = 'Seja bem vindo, '+response.data.nome;
+bemVindo.innerHTML = 'Seja bem vindo, ' + response.data.nome;
 const isImg = response.data.fotoUrl? response.data.fotoUrl:false;
 image.innerHTML = isImg? `<img src="${isImg}">`: "<a href='http://localhost:5500/frontend/imagem-user.html'>Colocar avatar</a>"  + `<img src="img/user-not-img">` ;
 const response1 = await api.get("torneios/index", {
@@ -36,7 +36,7 @@ criarTorneio.addEventListener('click', async ()=>{
 })
 sair.addEventListener('click', ()=>{
     localStorage.removeItem("token");
-    window.location.href = "http://localhost:5500/frontend/login.html"
+    window.location.href = "http://localhost:5500/frontend/home.html"
 });
 async function apagar(elemento){
     const nomeTorneio = String(elemento.parentNode.firstChild.innerHTML).trim().replace(/ /g, '-');
