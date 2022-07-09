@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../styles/global.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
 </head>
 <body>
-    <h1 class="Bem-vindo"></h1>
-    <button id="criar-torneio">Criar Torneio</button>
-    <button class="sair">Sair</button>
+    <h1 class="bemvindo"></h1>
+    <button class="sair">sair</button>
+    <button id="criar-torneio">Criar torneio</button>
     <div>
         <h2>Seus Torneio</h2>
         <div class="torneios"></div>
@@ -49,11 +48,12 @@
     inicio();
     
     criarTorneio.addEventListener('click', async ()=>{
-        window.location.href = "http://127.0.0.1:5500/frontend/pages/criar-torneio.html"
+
+        window.location.href = "http://127.0.0.1:5500/frontend/criar-torneio.html"
     })
     sair.addEventListener('click', ()=>{
         localStorage.removeItem("token");
-        window.location.href = "http://127.0.0.1:5500/frontend/pages/login.html"
+        window.location.href = "http://127.0.0.1:5500/frontend/login.html"
     });
     async function apagar(elemento){
         const nomeTorneio = String(elemento.parentNode.firstChild.innerHTML).trim().replace(/ /g, '-');
@@ -67,7 +67,7 @@
     async function atualizar(elemento){
         const nomeTorneio = String(elemento.parentNode.firstChild.innerHTML).trim().replace(/ /g, '-');
         localStorage.setItem("nomeTorneioAtualizar", nomeTorneio);
-        window.location.href = "http://127.0.0.1:5500/frontend/pages/atualizar-torneio.html"
+        window.location.href = "http://127.0.0.1:5500/frontend/atualizar-torneio.html"
         /* await api.delete(`torneios/delete/${nomeTorneio}`, {
         headers:{
             'authorization': 'Bearer ' + localStorage.getItem("token")
