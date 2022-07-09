@@ -19,6 +19,6 @@ const api = axios.create({
         })
 
     
-    window.location.href = "http://localhost:5500/frontend/index.html"
+    window.location.href = "http://localhost:5500/frontend/inicio.html"
     })
 

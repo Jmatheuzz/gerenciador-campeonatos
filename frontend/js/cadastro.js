@@ -17,5 +17,5 @@ const api = axios.create({
 
     const response = await api.post("token", {email:emailValue, password:passwordValue});
     localStorage.setItem("token", response.data.token);
-    window.location.href = "http://localhost:5500/frontend/index.html"
+    window.location.href = "http://localhost:5500/frontend/inicio.html"
     })
