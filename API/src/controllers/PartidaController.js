@@ -24,7 +24,7 @@ class PartidaController{
       }
     async indexByCHE(req, res){
       const [torneio] = await Torneio.indexByNome(req.params.nomeTorneio.replace(/-/g, ' '));
-      console.log(torneio)
+      console.log(torneio);
       const partidas = await Partida.indexByCHE(torneio.id);
       return res.json({
         partidas

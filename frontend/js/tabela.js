@@ -1,24 +1,22 @@
-const informacoes = document.querySelector('.informations');
-const times = document.querySelector('.times');
-const partidas = document.querySelector('.partidas');
 const voltar = document.querySelector('#voltar');
-
 
 const api = axios.create({
     headers: {'Content-Type': 'application/json'},
     baseURL: "http://localhost:3001",
 });
-let contaTimes = 0;
-let qtdTimes;
-const nomeTorneio = localStorage.getItem("torneio").replace(/ /g, '-');
-async function inicio(){
 
-    const response = await api.get(`torneios/show/${nomeTorneio}`, {
+const nomeTorneio = localStorage.getItem("torneio").replace(/ /g, '-');
+
+async function inicio(){
+    const response = await api.get(`${nomeTorneio}/index`, {
         headers:{
             'authorization': 'Bearer ' + localStorage.getItem("token")
         }
     })
-    response.data.torneio.forEach(torneio => {
+    
+    console.log(response);
+    
+    /*response.data.torneio.forEach(torneio => {
         qtdTimes = torneio.qtd_times;
         informacoes.innerHTML += `<div><h3 id = "nome-torneio"> ${torneio.nome} </h3>
         <p> Descrição: ${torneio.descricao} </p> <span>Premiação: R$ ${torneio.premiacao} </span>
@@ -37,7 +35,6 @@ async function inicio(){
             'authorization': 'Bearer ' + localStorage.getItem("token")
         }
     })
-    /*  */
 
     response1.data.Times.forEach(torneio => {
         contaTimes++;
@@ -50,50 +47,12 @@ async function inicio(){
         partidas.innerHTML = `<button onclick="mostrarTabela()">Mostrar Tabela</button>`;
     }else{
         alert(`Faltam ${qtdTimes - contaTimes} times serem adicionados para gerar partidas.`);
-    }
+    }*/
 
-}
-
-function criarTime(){
-    window.location.href = "http://localhost:5500/frontend/criar-time.html"
-}
-
-async function criarPartidasAleatorias(){
-    const response1 = await api.get(`times/${nomeTorneio}/index`, {
-        headers:{
-            'authorization': 'Bearer ' + localStorage.getItem("token")
-        }
-    })
-    const times = response1.data.Times
-
-    for (let i = 0; i < times.length; i++) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [times[i], times[j]] = [times[j], times[i]];
-    }
-    console.log(times)
-    while(times.length > 0){
-        const partida = {
-            time1: times.pop(),
-            time2: times.pop(),
-            local: "Crie o local",
-            data_hora: new Date().toISOString().slice(0, 19).replace('T', ' ')
-        }
-        await api.post(`partidas/${nomeTorneio}/${partida.time1.nome.replace(/ /g, '-')}/${partida.time2.nome.replace(/ /g, '-')}/create`, partida, {
-            headers:{
-                'authorization': 'Bearer ' + localStorage.getItem("token")
-            }
-        })
-    }
 }
 
 inicio();
 
-function mostrarTabela(){
-    window.location.href = "http://localhost:5500/frontend/tabela.html";
-}
-
 voltar.addEventListener('click', async ()=>{
-    window.location.href = "http://localhost:5500/frontend/meus-torneios.html";
+    window.location.href = "http://localhost:5500/frontend/meus-torneios.html"
 })
-
-
