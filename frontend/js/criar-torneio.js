@@ -11,5 +11,5 @@ formCriaTorneio.addEventListener('submit', async(e)=>{
     e.preventDefault();
     console.log(nomeTorneio.value);
     const response = await api.post("/torneios/create", {nome:nomeTorneio.value, descricao:descricaoTorneio.value, qtd_times:qtdTimesTorneio.value, premiacao: premiacaoTorneio.value}, {headers:{'authorization': 'Bearer ' + localStorage.getItem("token")}});
-    window.location.href = "http://localhost:5500/frontend/show-torneio.html"
+    window.location.href = "http://localhost:5500/frontend/meus-torneios.html"
 })

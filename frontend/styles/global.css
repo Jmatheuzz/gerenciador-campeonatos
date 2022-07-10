@@ -55,10 +55,6 @@ form{
     flex-direction: column;
 }
 
-/*div#torn{
-
-}*/
-
 div.image{
     display: flex;
     align-items: center;
@@ -92,6 +88,13 @@ div.torneios button{
     transition: filter 0.2s;
 
     font-size: 16px;
+}
+
+div.times{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 6px 6px;
 }
 
 img{
