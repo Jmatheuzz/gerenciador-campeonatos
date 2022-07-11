@@ -41,17 +41,15 @@ async function inicio(){
 
     response1.data.Times.forEach(torneio => {
         contaTimes++;
-        times.innerHTML += `<div><h3 id = "nome-torneio"> ${torneio.nome} </h3><button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button></div>`
+        times.innerHTML += `<div><h3 id = "nome-time"> ${torneio.nome} </h3><button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button></div>`
     });
     times.innerHTML += contaTimes < qtdTimes ? '<button onclick="criarTime()"> Adicionar time </button>': '';
 
     if(!response2.partidas && contaTimes == qtdTimes){
-        partidas.innerHTML = `<button onclick="criarPartidasAleatorias()"> Criar partidas aleatórias </button>`;
-        partidas.innerHTML = `<button onclick="mostrarTabela()">Mostrar Tabela</button>`;
+        partidas.innerHTML = `<button onclick="criarPartidasAleatorias()"> Criar partidas aleatórias </button><button onclick="mostrarTabela()">Mostrar Tabela</button>`;
     }else{
         alert(`Faltam ${qtdTimes - contaTimes} times serem adicionados para gerar partidas.`);
     }
-
 }
 
 function criarTime(){

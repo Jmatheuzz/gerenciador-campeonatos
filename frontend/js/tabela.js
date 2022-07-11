@@ -1,4 +1,5 @@
 const voltar = document.querySelector('#voltar');
+const partida = document.querySelector('.partida');
 
 const api = axios.create({
     headers: {'Content-Type': 'application/json'},
@@ -8,13 +9,32 @@ const api = axios.create({
 const nomeTorneio = localStorage.getItem("torneio").replace(/ /g, '-');
 
 async function inicio(){
-    const response = await api.get(`${nomeTorneio}/index`, {
+    
+    const response = await api.get(`partidas/${nomeTorneio}/index`, {
         headers:{
             'authorization': 'Bearer ' + localStorage.getItem("token")
         }
     })
-    
-    console.log(response);
+
+    const response1 = await api.get(`times/${nomeTorneio}/index`, {
+        headers:{
+            'authorization': 'Bearer ' + localStorage.getItem("token")
+        }
+    });
+    let time1;
+    let time2;
+    response.data.partidas.forEach(partidas => {
+        response1.data.Times.forEach(time =>{
+            if(partidas.id_time1 == time.id){
+                time1 = time.abrev;
+            }
+            if(partidas.id_time2 == time.id){
+                time2 = time.abrev;
+            }
+        });
+        partida.innerHTML += `<div><h3>${time1} x ${time2}</h3></div>`
+    });
+    //alert(response.partidas.id);
     
     /*response.data.torneio.forEach(torneio => {
         qtdTimes = torneio.qtd_times;
