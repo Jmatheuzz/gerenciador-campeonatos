@@ -3,6 +3,7 @@ const image = document.querySelector('.image');
 const bemVindo = document.querySelector('.bemvindo');
 const criarTorneio = document.querySelector('#criar-torneio');
 const meuTorneio = document.querySelector('#meu-torneio');
+const alterarDados = document.querySelector('#alterar-dados');
 const api = axios.create({
     headers: {'Content-Type': 'application/json'},
     baseURL: "http://localhost:3001",
@@ -28,3 +29,7 @@ sair.addEventListener('click', ()=>{
     localStorage.removeItem("token");
     window.location.href = "http://localhost:5500/frontend/home.html"
 });
+
+alterarDados.addEventListener('click', ()=>{
+    window.location.href = "http://localhost:5500/frontend/atualizar-cliente.html"
+})
