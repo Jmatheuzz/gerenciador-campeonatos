@@ -1,0 +1,115 @@
+ALTERAÇÕES
+
+ALTER TABLE pi.time
+	add column eliminado int default 0;
+
+
+ALTER TABLE pi.partida 
+	add COLUMN estado ENUM('NAO INICIADO','EM ANDAMENTO','FINALIZADO') default "NAO INICIADO";
+
+CREATE TABLE pi.clientes(
+    id int auto_increment primary key,
+    nome varchar(100) not null,
+    email varchar(100) not null unique,
+    password_hash varchar(200) not null
+);
+
+CREATE TABLE pi.torneio(
+    id int auto_increment,
+    id_cliente int,
+    nome varchar(100) not null unique,
+    descricao varchar(300) not null unique,
+    qtd_times int not null,
+    premiacao double,
+    constraint CHPandCHEtorneio
+	  primary key(id, id_cliente),
+        foreign key(id_cliente) references clientes(id)
+        on delete cascade
+        on update cascade
+);
+
+CREATE TABLE pi.time(
+	id int auto_increment,
+    id_torneio int,
+    nome varchar(50) not null unique,
+    abrev varchar(5) not null,
+    constraint CHPandCHEtime
+	  primary key(id, id_torneio),
+        foreign key(id_torneio) references torneio(id)
+        on delete cascade
+        on update cascade
+);
+
+CREATE TABLE pi.jogador(
+	id int auto_increment,
+    id_time int,
+    nome varchar(200) unique not null,
+    constraint CHPj
+		primary key(id, id_time),
+	constraint CHEj 
+		foreign key(id_time) references time(id)
+			on update cascade
+            on delete cascade
+);
+
+CREATE TABLE pi.partida(
+	id int auto_increment,
+    id_torneio int,
+    id_time1 int,
+    id_time2 int,
+    data_hora datetime not null,
+    local varchar(300) not null,
+    qtd_chutes_time1 int default 0,
+    qtd_chutes_time2 int default 0,
+    qtd_faltas_time1 int default 0,
+    qtd_faltas_time2 int default 0,
+    placar varchar(10) default "-",
+    constraint CHPt
+		primary key(id, id_torneio),
+	constraint CHEt
+		foreign key(id_torneio) references torneio(id)
+			on update cascade
+            on delete cascade,
+	constraint CHEt1
+		foreign key(id_time1) references time(id)
+			on update cascade
+            on delete cascade,
+	constraint CHEt2
+		foreign key(id_time2) references time(id)
+			on update cascade
+            on delete cascade
+);
+
+CREATE TABLE pi.gols(
+	id_jogador int,
+    id_partida int,
+    qtd_gols int,
+    gol_contra boolean,
+    constraint CHPg
+		primary key(id_partida, id_jogador),
+	constraint CHEgp
+		foreign key(id_partida) references partida(id)
+			on update cascade
+            on delete cascade,
+	constraint CHEgj
+  	foreign key(id_jogador) references jogador(id)
+    		on update cascade
+            on delete cascade
+);
+
+
+CREATE TABLE pi.avatar_cliente (
+	id int auto_increment,
+	filename varchar(200) not null,
+    originalname varchar(200) not null,
+    id_cliente int,
+    constraint CHPac
+		primary key (id, id_cliente),
+	constraint CHEac
+		foreign key (id_cliente) references clientes(id)
+        on delete cascade
+        on update cascade
+    
+);
+
+

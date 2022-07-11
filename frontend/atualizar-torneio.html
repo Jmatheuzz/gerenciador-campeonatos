@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./styles/global.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/logo.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futyes - Editar torneio</title>
+</head>
+<body>
+    <img src="./img/logo.png" alt="logo" />
+    <form id="form-torneio" >
+        <label for="">Nome do torneio</label>
+        <input type="text" name="nome" id="nome-torneio"><br>
+        <label for="">Descricao do torneio</label>
+        <input type="text" name="descricao" id="descricao-torneio"><br>
+        <label for="">Quantidade de times do torneio</label>
+        <input type="number" name="qtd_times" id="qtd-torneio"><br>
+        <label for="">Premiacao do torneio</label>
+        <input type="number" name="premiacao" id="premiacao-torneio"><br>
+        <button type="submit">Editar Torneio</button>
+    </form>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js" type="text/javascript"></script>
+<script src="js/atualizar-torneio.js"></script>
+
+</html>

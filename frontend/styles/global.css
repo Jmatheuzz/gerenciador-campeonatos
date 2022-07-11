@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body, input, button {
+    color: white;
+    background: #004aad;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+button{
+    width: 50%;
+    padding: 24px;
+    font-weight: 700;
+
+    background: rgba(0, 0, 0, 0.555);
+    color: #FFFFFF;
+
+    border-radius: 5px;
+    margin: 6px 0 6px;
+    border: none;
+
+    cursor: pointer;
+    transition: filter 0.2s;
+
+    font-size: 16px;
+}
+
+button:hover {
+    filter: brightness(0.9);
+}
+
+label{
+    color: white;
+    font-size: 20px;
+}
+
+input{
+    width: 300px;
+    padding: 15px;
+
+    background: #E6E6E6;
+    color:black;
+    border-radius: 5px;
+    border: none;
+
+    font-size: 16px;
+}
+
+select {
+    width: 300px;
+    padding: 15px;
+    background-color: #E6E6E6;
+    color: black;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.image{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.image h3{
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+div.image a{
+    text-decoration: none;
+}
+
+div.torneios button{
+    width: 100%;
+    padding: 24px;
+    font-weight: 700;
+
+    background: rgba(0, 0, 0, 0.555);
+    color: #FFFFFF;
+
+    border-radius: 5px;
+    margin: 6px 0 6px;
+    border: none;
+
+    cursor: pointer;
+    transition: filter 0.2s;
+
+    font-size: 16px;
+}
+
+div.times{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 6px 6px;
+}
+
+div.times button{
+    width: 200px;
+}
+
+img{
+    width: 10%;
+    margin: 10px;
+}
+
+h3#nome-time{
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+img#logohome{
+    width: 25%;
+    margin: 10px;
+}
+
+h1, h2{
+    color: #FFFF;
+    margin: 20px;
+}
+
+div.message{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+div.message button{
+    width: 200px;
+}
+
+.atualizar-apagar-times{
+    display: flex;
+    justify-content: center;
+}
+
+.atualizar-apagar-times button{
+    margin:2px;
+    margin-bottom: 50px;
+}
+
+#criar-time{
+    margin-top: 50px;
+}
+
+div.partidas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.partidas button {
+    width: 200px;
+}
+
+div.partida {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.partida h1{
+    text-transform: uppercase;
+}
+
+div.partida h2{
+    text-align: center;
+}
+
+div.partida button{
+    width: 200px;
+
+}
+
+div.partida h3{
+    margin: 5px;
+}
