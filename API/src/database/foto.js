@@ -6,6 +6,15 @@ exports.indexFotoByCHE = async function(id){
     return rows;
 }
 
+exports.deleteFoto = async function(idUser){
+    const conn = await connect();
+    const comandoSql = 'DELETE FROM avatar_cliente WHERE id_cliente = ?;';
+    const dados = await conn.query(comandoSql, idUser);
+    return dados;
+}
+
+
+
 
 exports.storeFoto = async function(foto){
     const conn = await connect();

@@ -196,3 +196,12 @@ div.partida button{
 div.partida h3{
     margin: 5px;
 }
+
+img{
+    width: 50px;
+}
+
+.user{
+    display: flex;
+    justify-content: center;
+}

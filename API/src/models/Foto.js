@@ -6,8 +6,8 @@ export default class Foto{
         return dados;
     }
 
-    static async delete(idTime, nome){
-        const dados = await fotoQuerys.deleteFoto(idTime, nome);
+    static async delete(idUser){
+        const dados = await fotoQuerys.deleteFoto(idUser);
         return dados;
     }
 
@@ -16,10 +16,6 @@ export default class Foto{
         return dados;
     }
 
-    static async update(idTime, foto, nomeJogador){
-        const dados = await fotoQuerys.updateFoto(idTime, Jogador, nomeJogador);
-        return dados;
-    }
 
 
 }

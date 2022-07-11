@@ -16,7 +16,7 @@ const sair = document.querySelector('.sair');
     })
     bemVindo.innerHTML = 'Seja bem vindo, '+response.data.nome;
     const isImg = response.data.fotoUrl? response.data.fotoUrl:false;
-    image.innerHTML = isImg? `<img src="${isImg}">`: "<a href='http://127.0.0.1:5500/frontend/imagem-user.html'>Colocar avatar</a>"  + `<img src="img/user-not-img">` ;
+    image.innerHTML += isImg? `<img src="${isImg}">`: "<a href='http://127.0.0.1:5500/frontend/imagem-user.html'>Colocar avatar</a>"  + `<img src="img/user-not-img">` ;
     const response1 = await api.get("torneios/index", {
         headers:{
             'authorization': 'Bearer ' + localStorage.getItem("token")
@@ -61,4 +61,8 @@ const sair = document.querySelector('.sair');
     }
     function criarTime(torneio){
         localStorage.setItem("torneio", torneio.innerHTML.slice(23, -6));
+    }
+
+    function apagarAvatar(){
+        console.log('ola')
     }
