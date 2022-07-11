@@ -34,7 +34,6 @@ exports.updatePartida = async function(idTorneio, partida, nomePartida){
     nomePartida = String(nomePartida).split('+');
     const [[idTime1]] = await conn.query('SELECT id FROM time WHERE nome=?', nomePartida[0]);
     const [[idTime2]] = await conn.query('SELECT id FROM time WHERE nome=?', nomePartida[1]);
-
     const subValues = [idTorneio, idTime1.id, idTime2.id];
     const [[rows]] = await conn.query('SELECT * FROM partida WHERE id_torneio = ? AND id_time1=? AND id_time2=?', subValues);
     

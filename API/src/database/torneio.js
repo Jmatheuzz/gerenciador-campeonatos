@@ -8,7 +8,7 @@ exports.indexTorneiosByCHE = async function(id){
 
 exports.indexTorneiosByNome = async function(nome){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT * FROM torneio WHERE nome=?', nome); 
+    const [rows] = await conn.query('SELECT * FROM torneio WHERE nome=?', String(nome).replace(/-/g, ' ')); 
     return rows;
 }
 

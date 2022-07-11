@@ -73,8 +73,8 @@ async function criarPartidasAleatorias(){
         const partida = {
             time1: times.pop(),
             time2: times.pop(),
-            local: "Crie o local",
-            data_hora: new Date().toISOString().slice(0, 19).replace('T', ' ')
+            local: "NÃO DEFINIDO",
+            data_hora: '0000-00-00 00:00:000'
         }
         await api.post(`partidas/${nomeTorneio}/${partida.time1.nome.replace(/ /g, '-')}/${partida.time2.nome.replace(/ /g, '-')}/create`, partida, {
             headers:{

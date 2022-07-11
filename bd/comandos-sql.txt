@@ -3,9 +3,11 @@ ALTERAÇÕES
 ALTER TABLE pi.time
 	add column eliminado int default 0;
 
-ALTER TABLE pi.partida
+ALTER TABLE pi.partida //Dei drop nessa tabela para criar com ENUM
 	add column estado varchar(20) default "NAO INICIADO";
 
+ALTER TABLE pi.partida 
+	add COLUMN estado ENUM('NAO INICIADO','EM ANDAMENTO','FINALIZADO') default "NAO INICIADO";
 
 CREATE TABLE pi.clientes(
     id int auto_increment primary key,
