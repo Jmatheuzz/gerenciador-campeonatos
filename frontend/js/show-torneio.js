@@ -39,9 +39,9 @@ async function inicio(){
     })
     /*  */
 
-    response1.data.Times.forEach(torneio => {
+    response1.data.Times.forEach(time => {
         contaTimes++;
-        times.innerHTML += `<div><h3 id = "nome-time"> ${torneio.nome} </h3><div class = "atualizar-apagar-times"><button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button></div> </div>`
+        times.innerHTML += `<div><h3 id = "nome-time"> ${time.nome} </h3><button onclick="apagar(this)"> Apagar </button> <button onclick="atualizar(this)"> Atualizar </button> </div>`
     });
     times.innerHTML += contaTimes < qtdTimes ? '<button id="criar-time" onclick="criarTime()"> Adicionar time </button>': '';
 
@@ -88,6 +88,14 @@ inicio();
 
 function mostrarTabela(){
     window.location.href = "http://localhost:5500/frontend/tabela.html";
+}
+
+function atualizar(elemento){
+    const nomeTime = String(elemento.parentNode.firstChild.innerHTML).trim().replace(/ /g, '-');
+
+    localStorage.setItem("nomeTimeAtualizar", nomeTime);
+    window.location.href = "http://localhost:5500/frontend/atualizar-time.html"
+
 }
 
 voltar.addEventListener('click', async ()=>{
