@@ -46,7 +46,7 @@ async function inicio(){
     times.innerHTML += contaTimes < qtdTimes ? '<button id="criar-time" onclick="criarTime()"> Adicionar time </button>': '';
 
     if(!response2.partidas && contaTimes == qtdTimes){
-        partidas.innerHTML = `<button id="adicionar-time" onclick="criarPartidasAleatorias()"> Criar partidas aleatórias </button><button onclick="mostrarTabela()">Mostrar Tabela</button>`;
+        partidas.innerHTML = `<button id="adicionar-time" onclick="criarPartidasAleatorias()"> Criar partidas aleatórias </button><button onclick="mostrarTabela()">Mostrar MATA-MATA</button>`;
     }else{
         alert(`Faltam ${qtdTimes - contaTimes} times serem adicionados para gerar partidas.`);
     }

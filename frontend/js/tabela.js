@@ -1,3 +1,4 @@
+
 const voltar = document.querySelector('#voltar');
 const partida = document.querySelector('.partida');
 const fase = document.querySelector('.fase');
@@ -26,6 +27,7 @@ async function inicio(){
 
 
     let time1, time2, nometime1, nometime2;
+
     response.data.partidas.forEach(partidas => {
         let noeliminated = 0;
         response1.data.Times.forEach(time =>{
@@ -69,22 +71,7 @@ async function inicio(){
         partida.innerHTML += `<h2>${time1} ${placar} ${time2}</h2>`
         partida.innerHTML += `<button onclick=infoJogo(${partidas.id}).toString()> Adicionar informações do jogo </button>`;
         partida.innerHTML += `<h3>Data: ${data + " " + "Hora: " + hora}</h3><h3>Local: ${partidas.local}</h3><h3>Estado: ${partidas.estado}</h3>`;
-        /*partida.innerHTML += `<h3>Estado:<select id="estados">
-            <option value="ni">NAO INICIADO</option>
-            <option value="ea">EM ANDAMENTO</option>
-            <option value="fi">FINALIZADO</option>
-        </select></h3><button id="btnInfo${partidas.id}">Confirmar Estado<button/>`;
-        const btnestado = document.querySelector(`#btnInfo${partidas.id}`);
-        btnestado.addEventListener('click', async ()=>{
-            const estadoesc = document.getElementById("estados");
-            console.log(estadoesc.options[estadoesc.selectedIndex].text);
-            const nomeTorneioAtualizar = localStorage.getItem("nomeTorneioAtualizar");
-            await api.put(`/${nomeTorneioAtualizar}/${nometime1}+${nometime2}/update`, {id: partidas.id, id_torneio: partidas.id_torneio, id_time1: partidas.id_time1, id_time2: partidas.id_time2, data_hora: partidas.data_hora, local: partidas.local, qtd_chutes_time1: partidas.qtd_chutes_time1, qtd_chutes_time2: partidas.qtd_chutes_time2, qtd_faltas_time1: partidas.qtd_faltas_time1, qtd_faltas_time2: partidas.qtd_faltas_time2, placar: partidas.placar, estado: estadoesc.options[estadoesc.selectedIndex].text}, {
-                headers:{
-                    'authorization': 'Bearer ' + localStorage.getItem("token")
-                }
-            });
-        })*/
+
     });
 }
 
@@ -156,3 +143,5 @@ async function infoJogo(id){
         }
     })
 }
+
+
